@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rem的使用</title>
+    <script>
+
+        class Style{
+
+            //构造函数
+            constructor(id){
+
+            };
+            setId(id){
+                this.id = id;
+            };
+             // 基于iPhone6设置rem => 1px = 1rem = 0.5pt
+            static initRem() {
+                let id = this;
+                console.log(id);
+                //获取视窗宽高
+                const width = window.document.documentElement.clientWidth > 768 ? 768 : window.document.documentElement.clientWidth;
+                const height = window.document.documentElement.clientHeight;
+                //设置横屏情况
+                const maxWidth = (window.document.documentElement.clientWidth <= 768 || height * 2 / 3 > width) ? width : height * 2 / 3;
+                document.documentElement.style.fontSize = `${width / 7.5}px`;
+                try{
+                    document.body.style.width = `${maxWidth}px`;
+                }catch (e) {
+                    document.getElementById(id).style.width = `${maxWidth}px`;
+                }
+            };
+
+            //设置响应式字体
+            static Response(){
+                let self = this;
+                window.onresize = function () {
+                    self.initRem();
+                }
+            };
+        }
+        Style.initRem("body");
+        Style.Response();
+        console.log(document.body);
+    </script>
+
+    <style type="text/css">
+
+        .container{
+            border: 1px solid #cccccc;
+            width: 2rem;
+            height: 2rem;
+            margin: .5rem auto;
+        }
+    </style>
+</head>
+<body id="body">
+    <div class="container"></div>
+    <script>
+        console.log(document.body);
+    </script>
+</body>
+
+</html>
