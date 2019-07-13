@@ -1,6 +1,6 @@
-###安装ES6环境
+### 安装ES6环境
 ES6是需要依赖与node上运行的，虽然现在很多浏览器也支持了不少ES6的语法，但是为了兼容我们可以将ES6转换成es5然后再向浏览器输出。
-######使用Babel转换ES6
+###### 使用Babel转换ES6
 首先我们再根目录初始化一下:
 1.首先在根目录创建src和dilst文件夹，src下创建一个index.js（用来写ES6）
 ```
@@ -54,17 +54,17 @@ babel src/index.js -o dist/index.js
 ```
 这样我们在控制台直接npm run build就可以直接转换了
 
-###let声明变量
-###变量都解构赋值
-###扩展运算符和rest运算符
-###字符串模版
-###ES6数字操作
-###ES6中新增的数组知识
-###ES6中的箭头函数和扩展
-###ES6中的函数和数组补漏
-###ES6中对象
-###Symbol在对象中的作用
-######保护对象
+### let声明变量
+### 变量都解构赋值
+### 扩展运算符和rest运算符
+### 字符串模版
+### ES6数字操作
+### ES6中新增的数组知识
+### ES6中的箭头函数和扩展
+### ES6中的函数和数组补漏
+### ES6中对象
+### Symbol在对象中的作用
+###### 保护对象
 假如我们现在有一个对象是Anna（此对象非彼对象，嘿嘿），我们第一次见面人家只给了你名字，你就好奇她都年龄，但是女孩子一般都是比较害羞都，怎么会给你说她都芳龄，于是就对自都年龄进行了保护，不让你知道。
 ```
 let obj = {
@@ -76,7 +76,7 @@ for(let index in obj) {
     console.log(obj[index]);// Anna
 }
 ```
-######构建对象的key
+###### 构建对象的key
 ```
 let key = Symbol();
 let obj = {
@@ -87,11 +87,11 @@ key = 'age';
 obj[key] = 18;  //这里也可以用obj.key = 18
 console.log(obj);   //{age: 18, Symbol(): "Anna"}
 ```
-###Set和WeakSet数据结构
-###map数据结构
-###用Proxy进行预处理
-###Promise对象的使用
-######解决地狱回调
+### Set和WeakSet数据结构
+### map数据结构
+### 用Proxy进行预处理
+### Promise对象的使用
+###### 解决地狱回调
 因为js中有一只函数机制叫回调机制，就是将一个函数作为一个参数传入，当主题函数执行之后再执行回调，这样感觉的确很舒服也比较使用，不过前提是只有一次或者两次的话感觉还是OK的，但是如果多了的话就会产生严重的函数潜嵌套问题
 *我们先看一下，下方的代码*
 ```
@@ -167,10 +167,10 @@ new Promise(getData)
 .catch(err => console.log(err));
 ```
 
-###class类的使用
-######如果你会一门后端语言这玩意儿一看就会
+### class类的使用
+###### 如果你会一门后端语言这玩意儿一看就会
 创建一个类只需要关键字class就足够了，一个类里面应该有什么呢？包括三个，一个是属性，一个是方法，还有一个构造函数，如果不写constructor构造函数，ES6将会隐式提供一个没有参数的构造函数。
-######创建类的属性
+###### 创建类的属性
 ```
 class People {
     constructor(name, age) {
@@ -179,9 +179,9 @@ class People {
     }
 }
 let people = new People('Anna', 18);
-console.log(people);    //People {name: "Anna", age: 18}
+console.log(people);    //People {name: "Anna", age: 18}
 ```
-######创建类的方法和使用
+###### 创建类的方法和使用
 ```
 class People {
     constructor(name, age) {
@@ -202,7 +202,7 @@ console.log(people.getName());  //Anana
 people.setName('Larry');
 console.log(people.getName());  //Larry
 ```
-######继承（这个非常重要）
+###### 继承（这个非常重要）
 首先作为一个类，自然要考虑到他的继承，提高复用率，扩展性。
 ```
 class People {
@@ -240,9 +240,9 @@ console.log(man);
 man.skill('弹吉他');    //我的名字是Larry，我今年18岁，我会弹吉他。
 man.play_game('LOL');   //我是个男孩子，我喜欢玩LOL。
 ```
-###模块化操作
+### 模块化操作
 模块化操作也已经是如今前端开发的一种很广泛的现象了，无论是现在的三大前端框架，还是小众的框架几乎都不会不用这种开发模式的。构建模块只需要理解导出、引入即可，剩下的就是自己天马行空的想象力了。
-######export导出模块
+###### export导出模块
 *单个导出*
 `export let num = 1`
 *多个导出*
@@ -266,7 +266,7 @@ export {arr as a, obj as o}
 export let num = 1;
 export default num  //默认导出
 ```
-######import导入
+###### import导入
 使用import导入使用后并不能马上运行，开篇便说了ES6是依赖于node的，所以这里需要用bable来转换一下，然后使用node来运行。
 *export导出时用{导出时的名称}来导入*
 ```
