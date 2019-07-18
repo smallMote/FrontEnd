@@ -133,7 +133,7 @@ getData(200, function(data) {
 })
 ```
 是不是有种越看越蒙的感觉，就像才毕业叫你去看淘宝源码一样，第一次感觉还可以，越往下看你越蒙。所以ES6中就出现了Promise这个好东西。
-*我们再来看Promise是怎么解决低于回调的*
+###### Promise是怎么解决低于回调的
 ```
 function getData(resolve, reject) {
     let code = 200;
@@ -166,7 +166,11 @@ new Promise(getData)
 .then(res => useData(res))
 .catch(err => console.log(err));
 ```
+###### 么优雅的使用Promise
+我们可以将Promise存放在一个函数中，我们将Promise返回，如下
+```
 
+```
 ### class类的使用
 ###### 如果你会一门后端语言这玩意儿一看就会
 创建一个类只需要关键字class就足够了，一个类里面应该有什么呢？包括三个，一个是属性，一个是方法，还有一个构造函数，如果不写constructor构造函数，ES6将会隐式提供一个没有参数的构造函数。

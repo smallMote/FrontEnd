@@ -1,3 +1,5 @@
-export class Test {
+class Test {
     
 }
+
+export default Test
